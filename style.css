@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* Стили */
+
+.header {
+	margin-top: 7px;
+}
+
+.container {
+	max-width: 1160px;
+	margin: 0 auto;
+}
+
+.upper-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.links-block {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 55px;
+}
+
+.link {
+	font-family: 'Montserrat';
+	font-size: 16px;
+	font-weight: 400;
+	color: #000;
+	transition: .2s;
+}
+
+.link:hover {
+	color: #777777;
+	transition: .2s;
+}
+
+.lower-block {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.catalog-lines { font-size: 18px; font-weight: 500; }
+
+.catalog-lines {
+	border-bottom: 6px double #000;
+  	border-top: 2px solid #000;
+  	content: "";
+  	height: 2px;
+  	width: 15px;
+  	box-sizing: unset;
+  	display: inline-block;
+  	vertical-align: middle;
+
+}
+
+.catalog-lines.white {
+	border-bottom: 6px double #fff;
+  	border-top: 2px solid #fff;
+}
+
+.close { display: flex; justify-content: end; margin-right: 10px; font-size: 40px; color: #fff; }
+
+.catalog-btn {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: none;
+	width: 165px;
+	height: 57px;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-family: 'Montserrat';
+	color: #fff;
+	background-color: #000;
+	transition: .2s;
+	cursor: pointer;
+	user-select: none;
+}
+
+.catalog-btn:hover .catalog-lines.white {
+	border-bottom: 6px double #000;
+  	border-top: 2px solid #000;
+}
+
+.catalog-btn:hover {
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #000;
+	transition: .2s;
+}
+
+.catalog {
+	position: relative;
+}
+
+.hide {
+	display: none !important;
+}
+
+.catalog-list {
+	position: absolute;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #000;
+}
+
+.catalog-item {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	font-family: 'Montserrat';
+	color: #fff;
+	padding: 10px;
+}
+
+.catalog-item:hover { background-color: #fff; color: #000; }
+
+
+input[type=search] {
+	width: 680px;
+	height: 57px;
+	padding: 25px;
+	outline: none;
+	font-family: 'Montserrat';
+	font-size: 16px;
+	border: none;
+	background-color: transparent;
+}
+
+input[type=search]::-webkit-search-cancel-button { display: none; }
+
+input[type=search]::placeholder {
+	font-family: 'Montserrat';
+	font-size: 16px;
+	color: #999999;
+}
+
+input[placeholder] { text-overflow: ellipsis; }
+
+.search-wrapper {
+	border: 1px solid black;
+	position: relative;
+}
+
+.search-btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
+
+.search-btn > svg {
+	width: 25px;
+	height: 25px;
+	transition: .2s;
+}
+
+.search-btn:hover svg {
+	fill: #777777;
+	transition: .2s;
+}
+
+
+.cart-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	transition: .2s;
+}
+
+.cart-block:hover .cart-text, .cart-block:hover .cart-img {
+	color: #777777;
+	fill: #777777;
+	transition: .2s;
+	
+}
+
+.cart-img {
+	width: 30px;
+	transition: .2s;
+}
+
+.cart-text {
+	color: #000;
+	font-family: 'Montserrat';
+	font-size: 16px;
+	transition: .2s;
+}
+
+.burger {
+	display: none;
+	border: none;
+	background: none;
+}
+
+.text-a {
+	display: none;
+	font-size: 50px;
+	margin-top: 200px;
+	margin-left: 200px;
+}
+
+.burger {
+	width: 25px;
+	height: 3px;
+	cursor: pointer;
+	margin-right: 5px;
+	z-index: 999;
+}
+
+.m-lines, .m-lines:after, .m-lines:before {
+	position: absolute;
+	width: 25px;
+	height: 4px;
+	padding: auto;
+	background-color: #000;
+	display: block;
+	transition: .3s;
+}
+
+
+.m-lines:before {
+	content: '';
+	top: -10px;
+	transition: top 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.m-lines:after {
+	content: '';
+	bottom: -10px;
+	transition: bottom 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.m-lines.active:before {
+	content: '';
+	top: 0;
+	transform: rotate(45deg);
+	transition: top 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0, 1,55);
+	background-color: #fff;
+}
+
+.m-lines.active:after {
+	content: '';
+	bottom: 0;
+	transform: rotate(-45deg);
+	transition: bottom 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0, 1,55); 
+	background-color: #fff;
+}
+
+.m-lines.active {
+	background-color: transparent;
+
+}
+
+.menu.active {
+	display: flex;
+}
+
+.menu {
+	display: none;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	background: #000;
+	flex-direction: column;
+	gap: 30px;
+	padding: 30px;
+	overflow-y: scroll;
+}
+
+.m-link, .m-text, .map {
+	color: #fff;
+	font-size: 26px;
+	font-family: 'Montserrat';
+}
+
+.m-text {
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.catalog-links, .contact-links, .about-links, .address-links {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.map {
+	height: 60px;
+	background-color: #2757FF;
+	border: none;
+	border-radius: 10px;
+	outline: none;
+	transition: .2s;
+	margin-top: 10px;
+}
+
+.map:hover {
+	background-color: #0D42FF;
+	transition: .2s;
+}
+
+
+/* Медиа-запросы */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	.container {
+		max-width: 970px;
+	}
+
+	input[type=search] {
+		width: 500px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.container {
+		max-width: 750px;
+	}
+
+	.link, .cart-text {
+		font-size: 14px;
+	}
+
+	.lower-block {
+		gap: 20px;
+	}
+
+	input[type=search] {
+		width: 300px;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+	.container {
+		max-width: 600px;
+	}
+
+	.link, .cart-text {
+		font-size: 12px;
+	}
+
+	.contact-link {
+		width: 110px;
+	}
+
+	.lower-block {
+		gap: 20px;
+	}
+
+	.logo-image {
+		width: 100px;
+	}
+
+	.catalog-btn {
+		width: 135px;
+		height: 47px;
+		font-size: 13px;
+	}
+
+	#search {
+		width: 200px;
+		height: 47px;
+    	padding: 11px;
+		font-size: 12px;
+	}
+
+	#search::placeholder {
+		font-size: 12px;
+		content: "Поиск";
+	}
+
+	.about-block {
+		width: 300px;
+	}
+
+	.cart-img {
+		width: 25px;
+	}
+
+	.search-btn {
+		top: 10px;
+		right: 3px;
+	}
+
+	.search-btn > svg {
+		width: 18px;
+	}
+
+	.text-a {
+		display: block;
+	}
+
+
+
+}
+
+@media (min-width: 480px) and (max-width: 627px) {
+
+	.container {
+		max-width: 470px;
+	}
+
+	.upper-block, .catalog-btn, .cart-text {
+		display: none;
+	}
+
+	.burger {
+		display: block;
+	}
+
+	.search-wrapper, #search {
+		border-radius: 10px;
+	}
+
+	.search-wrapper {
+		margin-left: -45px;
+	}
+
+	.catalog-lines {
+		scale: 1.8;
+		width: 13px;
+	}
+}
+
+@media (min-width: 315px) and (max-width: 479px) {
+
+	.container {
+		max-width: 390px;
+	}
+
+	.upper-block, .catalog-btn, .cart-text {
+		display: none;
+	}
+
+	.burger {
+		display: block;
+	}
+
+	#search {
+		border-radius: 10px;
+		width: 128px;
+		height: 40px;
+		padding: 10px;
+		font-size: 12px;
+	}
+
+	.catalog-lines {
+		font-size: 33px;
+	}
+
+	#search::placeholder {
+		font-size: 14px;
+	}
+
+	.logo-image {
+		width: 80px;
+		margin-left: 5px;
+	}
+
+	.cart-img {
+		width: 26px;
+	}
+
+	.catalog-lines {
+		scale: 2;
+		width: 12px;
+	}
+
+	.cart-block {
+		margin-right: 20px;
+	}
+
+	.search-wrapper {
+		width: 160px;
+		border-radius: 10px;
+		margin-right: 20px;
+	}
+
+	.search-btn {
+		left: 122px;
+		top: 7px;
+	}
+
+	.search-btn > svg {
+		width: 18px;
+	}
+
+	.menu {
+		padding: 32px;
+		gap: 26px;
+	}
+	.m-link, .m-text, .map {
+		font-size: 20px;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 380px) {
+	.search-wrapper {
+		margin-right: 10px;
+	}
+
+	.cart-block {
+		margin-right: 10px;
+	}
+
+}
